@@ -41,11 +41,10 @@ export default function Cartography({ auth }) {
                         <div className="p-6 text-xl">
                             JavaScript для картографії
                         </div>
-                        <div className="px-6 pb-6 text-xl">
+                        <div className="px-6 text-xl">
                             Вибрана позиція: {position[0]}, {position[1]}
                         </div>
-                        <div className="block max-md:aspect-square md:h-[40rem] w-full overflow-hidden">
-                            <span className="p-3 text-lg">Розташування</span>
+                        <div className="p-6 max-md:aspect-square md:h-[40rem] w-full overflow-hidden">
                             <MapContainer
                                 center={position}
                                 zoom={17}

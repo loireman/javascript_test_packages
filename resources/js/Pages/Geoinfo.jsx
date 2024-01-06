@@ -53,11 +53,10 @@ export default function Geoinfo({ auth }) {
                         <div className="p-6 text-xl">
                             JavaScript для геоінформаційних систем
                         </div>
-                        <div className="px-6 pb-6 text-xl">
+                        <div className="px-6 text-xl">
                             <div>Відображення території НАУ</div>
                         </div>
-                        <div className="block max-md:aspect-square md:h-[40rem] w-full overflow-hidden">
-                            <span className="p-3 text-lg">Розташування</span>
+                        <div className="max-md:aspect-square md:h-[40rem] p-6 w-full overflow-hidden">
                             <MapContainer
                                 center={position}
                                 zoom={16}

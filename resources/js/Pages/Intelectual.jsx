@@ -39,7 +39,10 @@ export default function Intelectual({ auth }) {
     const makePrediction = () => {
         if (trainedModel) {
             // Use the trained model to make predictions or display relevant information
-            const inputTensor = tf.tensor2d([number !== "" ? number : 5 ], [1, 1]);
+            const inputTensor = tf.tensor2d(
+                [number !== "" ? number : 5],
+                [1, 1]
+            );
             const predictionTensor = trainedModel.predict(inputTensor);
             const predictionValue = predictionTensor.dataSync()[0];
             setPrediction(predictionValue);
@@ -54,7 +57,7 @@ export default function Intelectual({ auth }) {
 
     const handleNumber = (e) => {
         let input = e.target.value;
-    
+
         if (input.match(/^([0-9]+)?(\.)?([0-9]+)?$/)) {
             setNumber(input);
         }
@@ -90,34 +93,36 @@ export default function Intelectual({ auth }) {
                                 Модель для обчислення виразу 2x - 1 з вибраним
                                 значенням за допомогою ШІ
                             </div>
-                            <InputLabel
-                                for="calc"
-                                value="Значення (базове - 5)"
-                            />
-                            <TextInput
-                                placeholder="Type number..."
-                                value={number}
-                                onChange={handleNumber}
-                                onBlur={handleFloat}
-                                name="calc"
-                                className="mr-5"
-                            />
-                            <button
-                                onClick={trainModel}
-                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                disabled={isTraining}
-                            >
-                                {isTraining
-                                    ? "Тренування..."
-                                    : "Запустити модель"}
-                            </button>
-                            <div>
-                                <h3 className="text-lg font-semibold mb-2">
-                                    Result:{" "}
-                                    {prediction !== null
-                                        ? prediction
-                                        : "No prediction yet"}
-                                </h3>
+                            <div className="p-6">
+                                <InputLabel
+                                    for="calc"
+                                    value="Значення (базове - 5)"
+                                />
+                                <TextInput
+                                    placeholder="5"
+                                    value={number}
+                                    onChange={handleNumber}
+                                    onBlur={handleFloat}
+                                    name="calc"
+                                    className="mr-5"
+                                />
+                                <button
+                                    onClick={trainModel}
+                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                    disabled={isTraining}
+                                >
+                                    {isTraining
+                                        ? "Тренування..."
+                                        : "Запустити модель"}
+                                </button>
+                                <div>
+                                    <h3 className="text-lg font-semibold mb-2">
+                                        Результат:{" "}
+                                        {prediction !== null
+                                            ? prediction
+                                            : "немає"}
+                                    </h3>
+                                </div>
                             </div>
                         </div>
                     </div>
