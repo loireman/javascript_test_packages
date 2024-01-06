@@ -25,7 +25,10 @@ function Intelectual({ auth }) {
   };
   const makePrediction = () => {
     if (trainedModel) {
-      const inputTensor = tf.tensor2d([number !== "" ? number : 5], [1, 1]);
+      const inputTensor = tf.tensor2d(
+        [number !== "" ? number : 5],
+        [1, 1]
+      );
       const predictionTensor = trainedModel.predict(inputTensor);
       const predictionValue = predictionTensor.dataSync()[0];
       setPrediction(predictionValue);
@@ -54,38 +57,40 @@ function Intelectual({ auth }) {
         /* @__PURE__ */ jsx("div", { className: "py-6", children: /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto sm:px-6 lg:px-8", children: /* @__PURE__ */ jsx("div", { className: "bg-white overflow-hidden shadow-sm sm:rounded-lg", children: /* @__PURE__ */ jsxs("div", { className: "p-6 text-gray-900", children: [
           /* @__PURE__ */ jsx("div", { className: "p-6 text-xl", children: "JavaScript та інтелектуальні програмні компоненти інформаційних систем. підтримка засобів штучного інтелекту, експертних систем, розпізнавання образів, тощо." }),
           /* @__PURE__ */ jsx("div", { className: "p-6 text-xl", children: "Модель для обчислення виразу 2x - 1 з вибраним значенням за допомогою ШІ" }),
-          /* @__PURE__ */ jsx(
-            InputLabel,
-            {
-              for: "calc",
-              value: "Значення (базове - 5)"
-            }
-          ),
-          /* @__PURE__ */ jsx(
-            TextInput,
-            {
-              placeholder: "Type number...",
-              value: number,
-              onChange: handleNumber,
-              onBlur: handleFloat,
-              name: "calc",
-              className: "mr-5"
-            }
-          ),
-          /* @__PURE__ */ jsx(
-            "button",
-            {
-              onClick: trainModel,
-              className: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",
-              disabled: isTraining,
-              children: isTraining ? "Тренування..." : "Запустити модель"
-            }
-          ),
-          /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("h3", { className: "text-lg font-semibold mb-2", children: [
-            "Result:",
-            " ",
-            prediction !== null ? prediction : "No prediction yet"
-          ] }) })
+          /* @__PURE__ */ jsxs("div", { className: "p-6", children: [
+            /* @__PURE__ */ jsx(
+              InputLabel,
+              {
+                for: "calc",
+                value: "Значення (базове - 5)"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              TextInput,
+              {
+                placeholder: "5",
+                value: number,
+                onChange: handleNumber,
+                onBlur: handleFloat,
+                name: "calc",
+                className: "mr-5"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "button",
+              {
+                onClick: trainModel,
+                className: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",
+                disabled: isTraining,
+                children: isTraining ? "Тренування..." : "Запустити модель"
+              }
+            ),
+            /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("h3", { className: "text-lg font-semibold mb-2", children: [
+              "Результат:",
+              " ",
+              prediction !== null ? prediction : "немає"
+            ] }) })
+          ] })
         ] }) }) }) })
       ]
     }

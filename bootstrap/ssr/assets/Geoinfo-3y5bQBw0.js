@@ -37,52 +37,49 @@ function Geoinfo({ auth }) {
         /* @__PURE__ */ jsx(Head, { title: "Geoinfo" }),
         /* @__PURE__ */ jsx("div", { className: "py-6", children: /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "bg-white overflow-hidden shadow-sm sm:rounded-lg", children: [
           /* @__PURE__ */ jsx("div", { className: "p-6 text-xl", children: "JavaScript для геоінформаційних систем" }),
-          /* @__PURE__ */ jsx("div", { className: "px-6 pb-6 text-xl", children: /* @__PURE__ */ jsx("div", { children: "Відображення території НАУ" }) }),
-          /* @__PURE__ */ jsxs("div", { className: "block max-md:aspect-square md:h-[40rem] w-full overflow-hidden", children: [
-            /* @__PURE__ */ jsx("span", { className: "p-3 text-lg", children: "Розташування" }),
-            /* @__PURE__ */ jsxs(
-              MapContainer,
-              {
-                center: position,
-                zoom: 16,
-                style: {
-                  height: "100%",
-                  width: "100%"
-                },
-                children: [
-                  /* @__PURE__ */ jsxs(LayersControl, { position: "topright", children: [
-                    /* @__PURE__ */ jsx(
-                      LayersControl.BaseLayer,
-                      {
-                        checked: true,
-                        name: "Base layer",
-                        children: /* @__PURE__ */ jsx(TileLayer, { url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" })
-                      }
-                    ),
-                    /* @__PURE__ */ jsx(LayersControl.BaseLayer, { name: "Topo layer", children: /* @__PURE__ */ jsx(TileLayer, { url: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png" }) })
-                  ] }),
+          /* @__PURE__ */ jsx("div", { className: "px-6 text-xl", children: /* @__PURE__ */ jsx("div", { children: "Відображення території НАУ" }) }),
+          /* @__PURE__ */ jsx("div", { className: "max-md:aspect-square md:h-[40rem] p-6 w-full overflow-hidden", children: /* @__PURE__ */ jsxs(
+            MapContainer,
+            {
+              center: position,
+              zoom: 16,
+              style: {
+                height: "100%",
+                width: "100%"
+              },
+              children: [
+                /* @__PURE__ */ jsxs(LayersControl, { position: "topright", children: [
                   /* @__PURE__ */ jsx(
-                    Polygon,
+                    LayersControl.BaseLayer,
                     {
-                      pathOptions: {
-                        color: "#5755ff",
-                        dashArray: [0, 10, 10, 10]
-                      },
-                      positions: polygon
+                      checked: true,
+                      name: "Base layer",
+                      children: /* @__PURE__ */ jsx(TileLayer, { url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" })
                     }
                   ),
-                  /* @__PURE__ */ jsx(
-                    ImageOverlay,
-                    {
-                      attributes: { stroke: "red" },
-                      url: "images/NAU.jpg",
-                      bounds
-                    }
-                  )
-                ]
-              }
-            )
-          ] })
+                  /* @__PURE__ */ jsx(LayersControl.BaseLayer, { name: "Topo layer", children: /* @__PURE__ */ jsx(TileLayer, { url: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png" }) })
+                ] }),
+                /* @__PURE__ */ jsx(
+                  Polygon,
+                  {
+                    pathOptions: {
+                      color: "#5755ff",
+                      dashArray: [0, 10, 10, 10]
+                    },
+                    positions: polygon
+                  }
+                ),
+                /* @__PURE__ */ jsx(
+                  ImageOverlay,
+                  {
+                    attributes: { stroke: "red" },
+                    url: "images/NAU.jpg",
+                    bounds
+                  }
+                )
+              ]
+            }
+          ) })
         ] }) }) })
       ]
     }

@@ -75,7 +75,7 @@ function Security({ auth }) {
                 PrimaryButton,
                 {
                   onClick: encryptMessage,
-                  className: "bg-cyan-800 hover:bg-cyan-900",
+                  className: "bg-cyan-600 hover:bg-cyan-700",
                   children: "Зашифрувати"
                 }
               ),
